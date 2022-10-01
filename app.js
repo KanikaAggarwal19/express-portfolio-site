@@ -1,7 +1,7 @@
 const express = require("express"),
 	app = express(), routes = require('./routes');
 
-
+const port = process.env.PORT || 8080
 
 app.set("view engine", "ejs");
 
@@ -11,6 +11,6 @@ app.use('/', routes);
 
 
 
-app.listen(8080, function() {
-	console.log("Server is running on port 8080 ");
+app.listen(port, function() {
+	console.log("Server is running on port:" + port);
 });
