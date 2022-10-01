@@ -10,4 +10,4 @@
        npm i nodemon --save-dev
    
 # 4. Start the server by running the following command in the terminal
-       nodemon server.js or npx nodemon server.js
+       nodemon app.js or npx nodemon app.js
