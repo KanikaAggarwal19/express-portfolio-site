@@ -103,6 +103,4 @@ dist
 # TernJS port file
 .tern-port
 /.project
-/package-lock.json
-/package.json
 /.settings/
