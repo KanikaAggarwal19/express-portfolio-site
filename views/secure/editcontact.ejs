@@ -1,30 +1,33 @@
+
+
+
 <%- include('../partials/authHeader'); %>
 <!-- contact -->
 <section id="about" class="about-area pt-115">
 	<div class="container">
 					<h3 class="welcome">Contact Details</h3>
 					
-					<form action="/api/auth/addcontact" method="post">
+					<form action="/api/auth/updatecontact" method="post">
 					<% if(locals.message) { %> <div id="emailHelp" class="form-text"><%= locals.message %> </div> <%} %>
   <div class="mb-3">
     <label for="exampleInputEmail1" class="form-label">Contact Name</label>
-    <input type="text" name="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+    <input type="text" name="name" value="<%= user.contactName %>"  class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
   </div>
   <div class="mb-3">
     <label for="exampleInputPassword1" class="form-label">Email Address</label>
-    <input type="email" class="form-control" id="exampleInputPassword1" name="email">
+    <input type="email" value="<%= user.emailAddress %>" class="form-control" id="exampleInputPassword1" name="email">
     <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
   </div>
   <div class="mb-3">
     <label for="exampleInputEmail1" class="form-label">Contact Number</label>
-    <input type="tel" name="phone" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+    <input type="tel" name="phone" value="<%= user.contactNumber %>" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
   </div>
    
   
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>
 					
-					
+		
 				</div>
 				
 		

@@ -1,3 +1,9 @@
+/* 
+File name: auth.routes.js
+Student’s Name: Kanika Aggarwal
+StudentID: 301273633
+Date: 29 Oct, 2022
+*/
 const { verifySignUp } = require("../middleware");
 const controller = require("../controllers/auth.controller");
 
@@ -24,8 +30,9 @@ module.exports = function(app) {
 
 app.post("/api/auth/addcontact", controller.addcontact);
 app.post("/api/auth/listcontact", controller.listcontact);
-app.post("/api/auth/deletecontact", controller.deletecontact);
+app.get("/api/auth/deletecontact", controller.deletecontact);
 app.post("/api/auth/updatecontact", controller.updatecontact);
+app.get("/api/auth/editcontact", controller.getcontact);
 
 	app.get("/secure/list", controller.listcontact);
 	

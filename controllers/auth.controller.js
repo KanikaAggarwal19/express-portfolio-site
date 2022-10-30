@@ -1,3 +1,11 @@
+/* 
+File name: aut.controller.js
+Student’s Name: Kanika Aggarwal
+StudentID: 301273633
+Date: 29 Oct, 2022
+*/
+
+
 const db = require("../models/db.init");
 const config = require("../config/auth.config");
 const User = db.users;
@@ -107,11 +115,6 @@ exports.addcontact = async (req, res) => {
 	});
 	
 	
-	return res.render("secure/welcome", {
-		page: 1,
-		contactlist: contactlist,
-	});
-	
   } catch (err) {
     this.next(err);
   }
@@ -121,7 +124,7 @@ exports.updatecontact = async (req, res) => {
 	  try {
 	    const user = await Contact.update({
 		  contactName: req.body.name,
-	      contactNumber: req.body.username,
+	      contactNumber: req.body.phone,
 	      emailAddress: req.body.email,
 	    });
 	
@@ -150,27 +153,35 @@ exports.updatecontact = async (req, res) => {
 
 exports.deletecontact = async (req, res) => {
 	  try {
-	    const user = await Contact.delete({
-		  contactName: req.body.name,
-	      contactNumber: req.body.username,
-	      emailAddress: req.body.email,
-	    });
-	
-		res.render("login", {
-			page: 6,
-			message: "User Successfully Created!! Please Login Now"
-		});
 		
+	    await Contact.destroy({
+    where: { id: req.query.id }
+  })
+	
 		const contactlist = await Contact.findAll();
     return res.render("secure/welcome", {
 		page: 1,
 		contactlist: contactlist,
 	});
+		
+	  } catch (error) {
+	    res.render("register", { message: error.message });
+	  }
+};
+
+exports.getcontact = async (req, res) => {
+	  try {
+		
+	   
+	 const user = await Contact.findOne({
+      where: {
+        id: req.query.id
+      },
+    });
 	
-	
-	return res.render("secure/welcome", {
+    return res.render("secure/editcontact", {
 		page: 1,
-		contactlist: contactlist,
+		user: user,
 	});
 		
 	  } catch (error) {

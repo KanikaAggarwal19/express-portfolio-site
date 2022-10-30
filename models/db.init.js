@@ -1,3 +1,10 @@
+
+/* 
+File name: db.init.js
+Student’s Name: Kanika Aggarwal
+StudentID: 301273633
+Date: 29 Oct, 2022
+*/
 const dbConfig = require("../config/db.config.js");
 
 const Sequelize = require("sequelize");

@@ -1,3 +1,11 @@
+/* 
+File name: authjwt.js
+Student’s Name: Kanika Aggarwal
+StudentID: 301273633
+Date: 29 Oct, 2022
+*/
+
+
 const jwt = require("jsonwebtoken");
 const config = require("../config/auth.config.js");
 const db = require("../models/db.init");
