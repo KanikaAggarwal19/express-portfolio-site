@@ -104,3 +104,4 @@ dist
 .tern-port
 /.project
 /.settings/
+/package-lock.json

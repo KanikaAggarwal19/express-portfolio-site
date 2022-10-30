@@ -1,0 +1,40 @@
+<%- include('../partials/authHeader'); %>
+<!-- list contact -->
+<section id="about" class="about-area pt-115">
+	<div class="container">
+		<div class="row justify-content-center">
+			<div class="col-lg-9">
+				<div class="about-title text-center wow fadeInUp">
+				<a href="/secure/addcontact" type="submit" class="btn btn-primary">Add Contact</a>
+					
+					<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">First</th>
+      <th scope="col">Last</th>
+      <th scope="col">Handle</th>
+    </tr>
+  </thead>
+  <tbody>
+  
+  <% for(var i=0; i<contactlist.length; i++) {%>
+    <tr>
+      <th scope="row"><%= (i+1) %></th>
+      <td><%= locals.contactlist[i].contactName %></td>
+      <td><%= locals.contactlist[i].contactNumber %></td>
+      <td><%= locals.contactlist[i].emailAddress %></td>
+    </tr>
+    
+    <% } %>
+    
+  </tbody>
+</table>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- container -->
+</section>
+<!-- list contact -->
+<%- include('../partials/footer'); %>
